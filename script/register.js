@@ -1,13 +1,22 @@
 // select form by id
 const registerForm = document.querySelector('#register-form');
-console.log(registerForm);
+
 // Handle form submit event
-registerForm.addEventListener('submit', function () {
-    // Collect username
-    // Collect email
-    // Collect password
+registerForm.addEventListener('submit', function (event) {
+    // console.log(event.target);
+    event.preventDefault();
+    //  collect form data
+    const formData = new FormData(registerForm);
+    console.log(
+        formData.get('username'),
+        formData.get('email'),
+        formData.get('password')
+    );
     // Save user information
-    // Send confirmation email  
+    // Send confirmation email
+    // Display success message
+    const messageH1 = document.querySelector('#message');
+    messageH1.textContent = 'Account registered successfully!';  
 });
 
 // age variable
@@ -18,6 +27,15 @@ function squareAge(age) {
     return squareAge;
 }
 
-console.log (squareAge (age));
-const squareAge = squareAge(45);
-console.log(squaredAge);
+
+const squaredAge = squareAge(45);
+
+
+// function to get full name
+function fullName(firstName, lastName) {
+    // return firstName + lastName;
+    return `${firstName} ${lastName}`;
+}
+
+
+const myFullName = fullName('Shelly', 'Banahene');
